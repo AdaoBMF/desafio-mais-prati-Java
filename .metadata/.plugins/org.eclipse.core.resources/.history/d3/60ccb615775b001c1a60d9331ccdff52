@@ -1,0 +1,47 @@
+package br.com.pessoas.controller;
+
+import java.util.ArrayList;
+
+import br.com.pessoas.guiControll.Gui;
+import br.com.pessoas.model.*;
+import br.com.pessoas.util.*;
+
+/**
+ * Classe que contem os metodos que efetuam as demandas(CRUD) do usuario
+ * 
+ * @author Adao Vieira
+ *
+ */
+public class ActionControll {
+	//Array que ira armazenar os objetos criados durante a sessao
+	private static ArrayList<Individuo> individuos = new ArrayList<>();
+	
+	/**
+	 * metodo que cria um objeto Individuo(Pessoa/Aluno) e o armazena na Array individuos
+	 */
+	public static void register() {
+
+		String name = Gui.getTxt("Nome: ");
+		String phone = Gui.getTxt("Telefone: () ");
+		String birthdate = Gui.getTxt("Data de nascimento: (dd/mm/aaaa) ");
+		Double finalGrade = GradeCheck.gradeCheck() ? GradeCheck.getGrade() : null;
+
+		try {
+			if (finalGrade == null) {
+				Pessoa pessoa = new Pessoa(name, phone, birthdate);
+				individuos.add(pessoa);
+			} else {
+				Aluno aluno = new Aluno(name, phone, birthdate, finalGrade);
+				individuos.add(aluno);
+			}
+		} catch (Exception e) {
+			Gui.showTxt("Não foi possivel concluir a inclusão" + "\nErro: " + e.toString());
+		}
+
+	}
+	
+	public static String listIndividuos() {
+		return individuos.toString();
+	}
+
+}

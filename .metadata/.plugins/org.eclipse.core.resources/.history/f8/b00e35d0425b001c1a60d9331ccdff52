@@ -1,0 +1,12 @@
+package br.com.pessoas.model;
+
+import java.util.Date;
+
+public class Pessoa extends Individuo {
+
+	public Pessoa(String name, String phone, String birthdate, Date registerDate) {
+		super(name, phone, birthdate, registerDate);
+		
+	}
+	
+}

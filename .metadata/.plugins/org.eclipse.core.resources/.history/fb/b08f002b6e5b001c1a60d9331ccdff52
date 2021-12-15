@@ -1,0 +1,17 @@
+package br.com.pessoas.model;
+
+public class Aluno extends Individuo {
+
+	public Aluno(String name, String phone, String birthdate, double finalGrade) {
+		super(name, phone, birthdate);
+		this.setFinalGrade(finalGrade);
+		
+	}
+	@Override
+	public String toString() {
+		return "\nAluno \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: " 
+				+ getBirthdate() +"Nota final: " + getFinalGrade() + " \nData de cadastro: " + getRegisterDate() 
+				+ " \nÚltima atualização: " + getFileUpdate();
+	}
+	
+}

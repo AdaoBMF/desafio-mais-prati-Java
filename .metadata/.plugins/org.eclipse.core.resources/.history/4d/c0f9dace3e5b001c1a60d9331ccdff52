@@ -1,0 +1,27 @@
+package br.com.pessoas.util;
+
+import java.util.Calendar;
+/**
+ * Classe auxiliar para gerenciar datas
+ * 
+ * @author Adao Vieira
+ *
+ */
+public class CalendarManager {
+		
+		Calendar today = Calendar.getInstance();
+		
+		private int year = today.get(Calendar.YEAR);
+		private int month = (today.get(Calendar.MONTH) + 1);
+		private int day = today.get(Calendar.DAY_OF_MONTH);
+		private int hour = today.get(Calendar.HOUR);
+		private int minut = today.get(Calendar.MINUTE);
+		private int second = today.get(Calendar.SECOND);
+	
+	public String now() {
+		String str = String.format("%s/%s/%s %s:%s:%s",
+				this.day, this.month, this.year, this.hour, this.minut, this.second);		
+		return str;
+	}	
+	
+}

@@ -1,0 +1,24 @@
+package br.com.pessoas.testes;
+
+
+
+import br.com.pessoas.model.Aluno;
+import br.com.pessoas.model.Pessoa;
+import br.com.pessoas.model.Individuo;
+//import br.com.pessoas.util.DateManager;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+//		ActionControll.register();
+//		ActionControll.register();
+//		ActionControll.register();
+//		ActionControll.listIndividuos();
+//		System.out.println(ActionControll.listAlunos());
+		Pessoa a = new Pessoa("Jane", "51981164166", "21/06/1979");
+		
+		System.out.println(a instanceof Aluno);
+	}
+
+}

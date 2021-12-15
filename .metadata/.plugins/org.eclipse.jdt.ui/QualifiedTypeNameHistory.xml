@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="br.com.pessoas.util.DateManager"/>
+    <fullyQualifiedTypeName name="br.com.pessoas.model.Pessoa"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="br.com.pessoas.guiController.Gui"/>
+    <fullyQualifiedTypeName name="br.com.pessoas.guiControll.Gui"/>
+    <fullyQualifiedTypeName name="br.com.pessoas.controller.ActionControll"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="br.com.pessoas.model.Aluno"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeParseException"/>
+    <fullyQualifiedTypeName name="java.text.ParseException"/>
+    <fullyQualifiedTypeName name="br.com.pessoas.guiControll.Cli"/>
+</qualifiedTypeNameHistroy>

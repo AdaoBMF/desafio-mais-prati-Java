@@ -1,0 +1,19 @@
+package br.com.pessoas.util;
+
+import br.com.pessoas.guiControll.Gui;
+
+public class GradeCheck {
+		
+	public static boolean gradeCheck() {
+		String check = "";
+		while(!check.equalsIgnoreCase("S") || !check.equalsIgnoreCase("N")){
+			check = Gui.getTxt("Insrir nota? S/N ");			
+		}
+		if(check.equalsIgnoreCase("S")) {
+			return true;
+		}else {				
+			return false;
+		}
+	}
+
+}

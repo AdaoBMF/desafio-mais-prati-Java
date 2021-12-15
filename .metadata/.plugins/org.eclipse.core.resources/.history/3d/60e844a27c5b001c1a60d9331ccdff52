@@ -1,0 +1,25 @@
+package br.com.pessoas.testes;
+
+
+import java.util.ArrayList;
+
+import br.com.pessoas.model.Individuo;
+import br.com.pessoas.controller.ActionControll;
+import br.com.pessoas.guiControll.Gui;
+import br.com.pessoas.model.*;
+//import br.com.pessoas.util.DateManager;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+//		ActionControll.register();
+//		ActionControll.register();
+//		ActionControll.listIndividuos();
+		String a = "casa";
+		String b = "rato";
+		System.out.println(b.charAt(0)>a.charAt(0));
+		
+	}
+
+}

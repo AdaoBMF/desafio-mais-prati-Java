@@ -1,0 +1,11 @@
+package br.com.pessoas.model;
+
+public class Aluno extends Individuo {
+
+	public Aluno(String name, String phone, String birthdate, double finalGrade) {
+		super(name, phone, birthdate);
+		this.setFinalGrade(finalGrade);
+		
+	}
+	
+}

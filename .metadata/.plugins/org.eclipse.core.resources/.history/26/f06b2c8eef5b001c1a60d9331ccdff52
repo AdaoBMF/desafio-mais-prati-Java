@@ -1,0 +1,21 @@
+package br.com.pessoas.testes;
+
+
+
+import br.com.pessoas.controller.ActionControll;
+import br.com.pessoas.model.Individuo;
+//import br.com.pessoas.util.DateManager;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+//		ActionControll.register();
+		ActionControll.register();
+//		ActionControll.listIndividuos();
+		System.out.println(ActionControll.getIndByClass());
+		
+		
+	}
+
+}
