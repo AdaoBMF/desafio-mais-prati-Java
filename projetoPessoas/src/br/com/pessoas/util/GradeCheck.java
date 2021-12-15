@@ -3,7 +3,7 @@ package br.com.pessoas.util;
 import br.com.pessoas.guiControll.*;
 
 /**
- * Clçasse auxiliar para validacao e captacao do valor da nota
+ * Classe auxiliar para validacao e captacao do valor da nota
  * 
  * @author Adao Vieira
  *

@@ -2,8 +2,6 @@ package br.com.pessoas.model;
 
 import java.util.Date;
 
-import br.com.pessoas.util.DateManager;
-
 /**
  * Classe pai que padroniza as criação das classes funcionais(Pessoa e Aluno)
  * 
@@ -28,15 +26,16 @@ public abstract class Individuo implements Comparable<Individuo> {
 	 * @param birthdate
 	 * @param registerDate
 	 */
-	public Individuo(String name, String phone, String birthdate) {
+	public Individuo(String name, String phone, Date birthdate) {
 		super();
 		this.name = name;
 		this.phone = phone;
-		this.birthdate = DateManager.formDate(birthdate); //work in progress
+		this.birthdate = birthdate;
 		this.registerDate = new Date();
 		this.fileUpdate = new Date();
 	}
 
+	//Getters and Setters
 	public String getName() {
 		return name;
 	}
@@ -64,7 +63,7 @@ public abstract class Individuo implements Comparable<Individuo> {
 	public Date getRegisterDate() {
 		return registerDate;
 	}
-	
+
 	public Date getFileUpdate() {
 		return fileUpdate;
 	}
@@ -81,6 +80,11 @@ public abstract class Individuo implements Comparable<Individuo> {
 		this.finalGrade = finalGrade;
 	}
 
+	/**
+	 * Sobrescricao do metodo "compareTo" para permitir que os objetos armazenados
+	 * sejam classificados em ordem alfabetica tendo os nomes como parametro de
+	 * classificacao
+	 */
 	@Override
 	public int compareTo(Individuo ind) {
 		int check = 0;

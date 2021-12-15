@@ -2,10 +2,14 @@ package br.com.pessoas.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 import br.com.pessoas.guiControll.Cli;
-import br.com.pessoas.model.*;
-import br.com.pessoas.util.*;
+import br.com.pessoas.model.Aluno;
+import br.com.pessoas.model.Individuo;
+import br.com.pessoas.model.Pessoa;
+import br.com.pessoas.util.DateManager;
+import br.com.pessoas.util.GradeCheck;
 
 /**
  * Classe que contem os metodos que efetuam as demandas(CRUD) do usuario
@@ -27,7 +31,7 @@ public class ActionControll {
 		Cli.showTxt("Telefone: ((12)123456789) ");
 		String phone = Cli.getTxt();
 		Cli.showTxt("Data de nascimento: (dd/mm/aaaa) ");
-		String birthdate = Cli.getTxt();
+		Date birthdate = DateManager.inputDate();
 		Double finalGrade = GradeCheck.gradeCheck() ? GradeCheck.getGrade() : null;
 
 		try {
@@ -70,6 +74,11 @@ public class ActionControll {
 		return ind;
 	}
 
+	/**
+	 * Metodo que lista todos Alunos dastrados
+	 * 
+	 * @return String
+	 */
 	public static String listAlunos() {
 		ArrayList<Aluno> arr = new ArrayList<>();
 		Individuo ind = null;
@@ -82,6 +91,11 @@ public class ActionControll {
 		return arr.toString().replace(",", "");
 	}
 
+	/**
+	 * Metodo que lista todas pessoas cadastradas
+	 * 
+	 * @return String
+	 */
 	public static String listPessoas() {
 		ArrayList<Pessoa> arr = new ArrayList<>();
 		Individuo ind = null;

@@ -12,13 +12,12 @@ import br.com.pessoas.guiControll.Cli;
  *
  */
 public class DateManager {
+	
+	//Criando os obj usados para auxuliar a formatacao das datas nos metodos
 	private static DateFormat dayF = new SimpleDateFormat("dd/MM/yyyy");
-	private static DateFormat dayTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//	private static DateFormat dayTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-	/**
-	 * 
-	 * @return String data atual
-	 */
+	/*
 	public static Date formDate(String entry) {
 		Date date = null;
 		try {
@@ -26,7 +25,8 @@ public class DateManager {
 		} catch (ParseException e) {}
 		return date;
 	}
-
+	
+	
 	public static Date formDateTime(String entry) {
 		Date date = null;
 		try {
@@ -34,13 +34,19 @@ public class DateManager {
 		} catch (ParseException e) {}
 		return date;
 	}
+	*/
 
+	/**
+	 * Metodo auxiliar que recebe e valida a entrada do dia que ira compor a data
+	 * 
+	 * @return String
+	 */
 	private static String inputDay() {
 		String day = "";
 		Boolean check = false;
 		while (day.length() == 0) {
 			if (check == true) {
-				Cli.showTxt("Aviso!\nEntrada inválida/nDigite apenas números de 1 a 31");
+				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 31");
 			}
 			Cli.showTxt("Digite o dia do mês ");
 			try {
@@ -55,12 +61,17 @@ public class DateManager {
 		return day;
 	}
 
+	/**
+	 * Metodo auxiliar que recebe e valida a entrada do mes(numeral) que ira compor a data
+	 * 
+	 * @return String
+	 */
 	private static String inputMonth() {
 		String month = "";
 		Boolean check = false;
 		while (month.length() == 0) {
 			if (check == true) {
-				Cli.showTxt("Aviso!\nEntrada inválida/nDigite apenas números de 1 a 12");
+				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 12");
 			}
 			Cli.showTxt("Digite o nº do mês ");
 			try {
@@ -74,12 +85,17 @@ public class DateManager {
 		return month;
 	}
 
+	/**
+	 * Metodo auxiliar que recebe e valida a entrada do ano que ira compor a data 
+	 * 
+	 * @return String
+	 */
 	private static String inputYear() {
 		String year = "";
 		Boolean check = false;
 		while (year.length() == 0) {
 			if (check == true) {
-				Cli.showTxt("Aviso!\nEntrada inválida/nDigite apenas números ");
+				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números ");
 			}
 			Cli.showTxt("Digite o ano ");
 			try {
@@ -93,6 +109,11 @@ public class DateManager {
 		return year;
 	}
 
+	/**
+	 * Metodo que recebe a entrada do usuario valida, formata e retorna em formato Date 
+	 * 
+	 * @return Date
+	 */
 	public static Date inputDate() {
 		Date date = null;
 		String day = inputDay();
