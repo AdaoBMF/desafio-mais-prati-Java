@@ -14,9 +14,9 @@ public abstract class Individuo implements Comparable<Individuo> {
 	private String name;
 	private String phone;
 	private Date birthdate;
-	private Date registerDate;
-	private Date fileUpdate;
 	private Double finalGrade = null;
+	private Date registerDate;
+	private Date lastUpdate;
 
 	/**
 	 * Construtor padrão da classe Individuo
@@ -32,7 +32,7 @@ public abstract class Individuo implements Comparable<Individuo> {
 		this.phone = phone;
 		this.birthdate = birthdate;
 		this.registerDate = new Date();
-		this.fileUpdate = new Date();
+		this.lastUpdate = new Date();
 	}
 
 	//Getters and Setters
@@ -57,19 +57,19 @@ public abstract class Individuo implements Comparable<Individuo> {
 	}
 
 	public void setBirthdate(Date birthdate) {
-		this.fileUpdate = birthdate;
+		this.birthdate = birthdate;
 	}
 
 	public Date getRegisterDate() {
 		return registerDate;
 	}
 
-	public Date getFileUpdate() {
-		return fileUpdate;
+	public Date getLastUpdate() {
+		return lastUpdate;
 	}
 
-	public void setFileUpdate(Date fileUpdate) {
-		this.fileUpdate = fileUpdate;
+	public void setLastUpdate(Date fileUpdate) {
+		this.lastUpdate = fileUpdate;
 	}
 
 	public double getFinalGrade() {

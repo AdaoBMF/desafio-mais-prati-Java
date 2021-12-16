@@ -31,7 +31,7 @@ public class Pessoa extends Individuo {
 	public String toString() {
 		return "\nPessoa \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: " 
 				+ getBirthdate() + " \nData de cadastro: " + getRegisterDate() 
-				+ " \nÚltima atualização: " + getFileUpdate()
+				+ " \nÚltima atualização: " + getLastUpdate()
 				+"\n------------------------------------------------------------\n";
 	}
 	

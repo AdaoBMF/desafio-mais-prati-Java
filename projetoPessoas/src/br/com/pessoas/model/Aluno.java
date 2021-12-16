@@ -33,7 +33,7 @@ public class Aluno extends Individuo {
 	public String toString() {
 		return "\nAluno \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
 				+ getBirthdate() + "\nNota final: " + getFinalGrade() + " \nData de cadastro: " + getRegisterDate()
-				+ " \nÚltima atualização: " + getFileUpdate()
+				+ " \nÚltima atualização: " + getLastUpdate()
 				+ "\n------------------------------------------------------------\n";
 	}
 

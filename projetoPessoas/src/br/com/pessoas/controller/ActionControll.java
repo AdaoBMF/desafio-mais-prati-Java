@@ -10,6 +10,7 @@ import br.com.pessoas.model.Individuo;
 import br.com.pessoas.model.Pessoa;
 import br.com.pessoas.util.DateManager;
 import br.com.pessoas.util.GradeCheck;
+import br.com.pessoas.util.UpdateManager;
 
 /**
  * Classe que contem os metodos que efetuam as demandas(CRUD) do usuario
@@ -47,7 +48,7 @@ public class ActionControll {
 		}
 
 	}
-	
+
 	/**
 	 * Metodo que lista todos os Individuos armazenados
 	 */
@@ -55,11 +56,11 @@ public class ActionControll {
 		Collections.sort(individuos);
 		Cli.showTxt(individuos.toString().replace(",", ""));
 	}
-	
+
 	/**
 	 * Metodo que retorna um individuo pesquisado pelo nome
 	 * 
-	 * @param nome 
+	 * @param nome
 	 * @return Individuo
 	 */
 	public static Individuo getIndByName(String search) {
@@ -108,8 +109,64 @@ public class ActionControll {
 		return arr.toString().replace(",", "");
 	}
 
-	// testes
+	/**
+	 * Metotdo que realiza a edicao de um Individuo especifico
+	 * 
+	 * @param target
+	 * @param prop
+	 */
+	public static void updateIndividuo(Individuo target, String prop) {
+		Individuo ind = null;
+		if (target instanceof Pessoa) {
+			ind = (Pessoa) target;
+		} else if (target instanceof Aluno) {
+			ind = (Aluno) target;
+			if (prop.equalsIgnoreCase("finalGrade"))
+				UpdateManager.updateFinalGrade(ind);
 
+		}
+		if (ind != null) {
+			switch (prop) {
+			case "name":
+				UpdateManager.updateName(ind);
+				break;
+			case "phone":
+				UpdateManager.updatePhone(ind);
+				break;
+			case "birthdate":
+				UpdateManager.updateBirthdate(ind);
+				break;
+			}
+			UpdateManager.updateLastUpdate(ind);
+		}
+		Cli.showTxt(ind.toString());
+	}
 	
+	/**
+	 * Metodo que exclui um individuo especifico
+	 * 
+	 * @param target
+	 */
+	public static void deleteIndividuo(Individuo target) {
+		String name = target.getName();
+		individuos.remove(target);
+		Cli.showTxt(name +" removido com sucesso.");		
+	}
+
+	// testes
+	/*
+	 * SEQUENCIA DE EDICAO
+	 * 
+	 * APOS BUSCAR IND PERGUNTA: ACOES=> EDITAR / APAGAR / SAIR
+	 * 
+	 * EDITAR? => NOME / TELEFONE / NOTA / SAIR
+	 * 
+	 * NOVO VALOR? => EXECUTA => FEEDBACK
+	 * 
+	 * PROP? => NOME / TELEFONE / NOTA / SAIR
+	 * 
+	 * 
+	 * APAGAR => APAGA => FEEDBACK
+	 */
 
 }
