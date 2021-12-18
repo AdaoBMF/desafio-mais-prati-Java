@@ -1,7 +1,6 @@
 package br.com.pessoas.util;
 
 import java.util.Date;
-
 import br.com.pessoas.guiControll.Cli;
 import br.com.pessoas.model.Individuo;
 

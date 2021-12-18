@@ -65,11 +65,9 @@ public class ActionControll {
 	 */
 	public static Individuo getIndByName(String search) {
 		Individuo ind = null;
-		String name;
-		for (int i = 0; i < individuos.size(); i++) {
-			name = individuos.get(i).getName();
-			if (name.equalsIgnoreCase(name)) {
-				ind = individuos.get(i);
+		for (Individuo obj : individuos) {
+			if (obj.getName().equalsIgnoreCase(search)) {
+				ind = obj;
 			}
 		}
 		return ind;
@@ -123,7 +121,6 @@ public class ActionControll {
 			ind = (Aluno) target;
 			if (prop.equalsIgnoreCase("finalGrade"))
 				UpdateManager.updateFinalGrade(ind);
-
 		}
 		if (ind != null) {
 			switch (prop) {
@@ -139,7 +136,10 @@ public class ActionControll {
 			}
 			UpdateManager.updateLastUpdate(ind);
 		}
-		Cli.showTxt(ind.toString());
+		Cli.showTxt(
+				"Cadastro atualizado\n"
+				+ind.toString()
+				);
 	}
 	
 	/**

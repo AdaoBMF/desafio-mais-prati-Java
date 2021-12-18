@@ -17,16 +17,8 @@ public class DateManager {
 	private static DateFormat dayF = new SimpleDateFormat("dd/MM/yyyy");
 //	private static DateFormat dayTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+	
 	/*
-	public static Date formDate(String entry) {
-		Date date = null;
-		try {
-			date = dayF.parse(entry);
-		} catch (ParseException e) {}
-		return date;
-	}
-	
-	
 	public static Date formDateTime(String entry) {
 		Date date = null;
 		try {
@@ -36,6 +28,10 @@ public class DateManager {
 	}
 	*/
 
+	public static String printDate(Date entry) {		
+		return dayF.format(entry);
+	}
+	
 	/**
 	 * Metodo auxiliar que recebe e valida a entrada do dia que ira compor a data
 	 * 

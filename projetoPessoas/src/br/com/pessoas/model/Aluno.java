@@ -2,6 +2,8 @@ package br.com.pessoas.model;
 
 import java.util.Date;
 
+import br.com.pessoas.util.DateManager;
+
 /**
  * Classe funcional baseada na classe pai Individuo
  * 
@@ -32,7 +34,7 @@ public class Aluno extends Individuo {
 	@Override
 	public String toString() {
 		return "\nAluno \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
-				+ getBirthdate() + "\nNota final: " + getFinalGrade() + " \nData de cadastro: " + getRegisterDate()
+				+ DateManager.printDate(getBirthdate()) + "\nNota final: " + getFinalGrade() + " \nData de cadastro: " + getRegisterDate()
 				+ " \nÚltima atualização: " + getLastUpdate()
 				+ "\n------------------------------------------------------------\n";
 	}
