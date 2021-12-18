@@ -1,11 +1,11 @@
-package br.com.pessoas.guiControll;
+package br.com.pessoas.UiControll;
 
 import java.util.Scanner;
 
 
 
 /**
- * Classe responsavel por controlar a interacao do usuario via terminal
+ * Classe responsavel por possibilitar a interacao do usuario via terminal
  * 
  * @author Adao Vieira
  *

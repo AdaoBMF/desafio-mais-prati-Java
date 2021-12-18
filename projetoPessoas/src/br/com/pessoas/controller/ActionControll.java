@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
-import br.com.pessoas.guiControll.Cli;
+import br.com.pessoas.UiControll.Cli;
 import br.com.pessoas.model.Aluno;
 import br.com.pessoas.model.Individuo;
 import br.com.pessoas.model.Pessoa;
 import br.com.pessoas.util.DateManager;
-import br.com.pessoas.util.GradeCheck;
+import br.com.pessoas.util.GradeManager;
 import br.com.pessoas.util.UpdateManager;
 
 /**
@@ -26,14 +26,14 @@ public class ActionControll {
 	 * metodo que cria um objeto Individuo(Pessoa/Aluno) e o armazena na Array
 	 * individuos
 	 */
-	public static void register() {
+	private static void register() {
 		Cli.showTxt("Nome: ");
 		String name = Cli.getTxt();
-		Cli.showTxt("Telefone: ((12)123456789) ");
+		Cli.showTxt("Telefone: ");
 		String phone = Cli.getTxt();
 		Cli.showTxt("Data de nascimento: (dd/mm/aaaa) ");
 		Date birthdate = DateManager.inputDate();
-		Double finalGrade = GradeCheck.gradeCheck() ? GradeCheck.getGrade() : null;
+		Double finalGrade = Menu.gradeCheck() ? GradeManager.getGrade() : null;
 
 		try {
 			if (finalGrade == null) {
@@ -50,20 +50,12 @@ public class ActionControll {
 	}
 
 	/**
-	 * Metodo que lista todos os Individuos armazenados
-	 */
-	public static void listIndividuos() {
-		Collections.sort(individuos);
-		Cli.showTxt(individuos.toString().replace(",", ""));
-	}
-
-	/**
 	 * Metodo que retorna um individuo pesquisado pelo nome
 	 * 
 	 * @param nome
 	 * @return Individuo
 	 */
-	public static Individuo getIndByName(String search) {
+	private static Individuo getIndByName(String search) {
 		Individuo ind = null;
 		for (Individuo obj : individuos) {
 			if (obj.getName().equalsIgnoreCase(search)) {
@@ -72,22 +64,72 @@ public class ActionControll {
 		}
 		return ind;
 	}
+	
+	private static void search() {
+		
+		Individuo ind = null;
+		int op = 0;
+		int prop =0;
+		
+		Cli.showTxt("Insira o nome completo do Registro: ");
+		String target = Cli.getTxt();
+		try {
+			ind = getIndByName(target);
+			Cli.showTxt(ind.toString());
+		}catch(Exception e) {
+			Cli.showTxt("Registro não encontrado");
+		}
+		if(ind != null) {
+			op = Menu.menuEdit();
+			switch(op){
+				case 1:
+					prop = Menu.menuProp();
+					if(prop == 5)
+						break;
+					updateIndividuo(ind, prop);
+					break;
+				case 2:
+					deleteIndividuo(ind);
+					break;
+				case 3:
+					break;
+			}
+		}
+	}
+
+
+	/**
+	 * Metodo que lista todos os Individuos armazenados
+	 */
+	private static String listIndividuos() {
+		try {
+			Collections.sort(individuos);
+			return individuos.toString().replace(",", "");			
+		}catch(Exception e) {
+			return "Nenhum Registro Encontrado";
+		}
+	}
 
 	/**
 	 * Metodo que lista todos Alunos dastrados
 	 * 
 	 * @return String
 	 */
-	public static String listAlunos() {
+	private static String listAlunos() {
 		ArrayList<Aluno> arr = new ArrayList<>();
 		Individuo ind = null;
-		for (int i = 0; i < individuos.size(); i++) {
-			ind = individuos.get(i);
-			if (ind instanceof Aluno) {
-				arr.add((Aluno) ind);
+		try {
+			for (int i = 0; i < individuos.size(); i++) {
+				ind = individuos.get(i);
+				if (ind instanceof Aluno) {
+					arr.add((Aluno) ind);
+				}
 			}
+			Collections.sort(arr);
+			return arr.toString().replace(",", "");
+		}catch(Exception e) {
+			return "Nenhum Registro Encontrado";
 		}
-		return arr.toString().replace(",", "");
 	}
 
 	/**
@@ -95,16 +137,21 @@ public class ActionControll {
 	 * 
 	 * @return String
 	 */
-	public static String listPessoas() {
+	private static String listPessoas() {
 		ArrayList<Pessoa> arr = new ArrayList<>();
 		Individuo ind = null;
-		for (int i = 0; i < individuos.size(); i++) {
-			ind = individuos.get(i);
-			if (ind instanceof Pessoa) {
-				arr.add((Pessoa) ind);
+		try {
+			for (int i = 0; i < individuos.size(); i++) {
+				ind = individuos.get(i);
+				if (ind instanceof Pessoa) {
+					arr.add((Pessoa) ind);
+				}
 			}
+			Collections.sort(arr);
+			return arr.toString().replace(",", "");
+		}catch(Exception e) {
+			return "Nenhum Registro Encontrado";
 		}
-		return arr.toString().replace(",", "");
 	}
 
 	/**
@@ -113,24 +160,24 @@ public class ActionControll {
 	 * @param target
 	 * @param prop
 	 */
-	public static void updateIndividuo(Individuo target, String prop) {
+	private static void updateIndividuo(Individuo target, int prop) {
 		Individuo ind = null;
 		if (target instanceof Pessoa) {
 			ind = (Pessoa) target;
 		} else if (target instanceof Aluno) {
 			ind = (Aluno) target;
-			if (prop.equalsIgnoreCase("finalGrade"))
+			if (prop == 4)
 				UpdateManager.updateFinalGrade(ind);
 		}
 		if (ind != null) {
 			switch (prop) {
-			case "name":
+			case 1:
 				UpdateManager.updateName(ind);
 				break;
-			case "phone":
+			case 2:
 				UpdateManager.updatePhone(ind);
 				break;
-			case "birthdate":
+			case 3:
 				UpdateManager.updateBirthdate(ind);
 				break;
 			}
@@ -147,26 +194,49 @@ public class ActionControll {
 	 * 
 	 * @param target
 	 */
-	public static void deleteIndividuo(Individuo target) {
+	private static void deleteIndividuo(Individuo target) {
 		String name = target.getName();
 		individuos.remove(target);
 		Cli.showTxt(name +" removido com sucesso.");		
 	}
-
-	// testes
-	/*
-	 * SEQUENCIA DE EDICAO
+	
+	/**
 	 * 
-	 * APOS BUSCAR IND PERGUNTA: ACOES=> EDITAR / APAGAR / SAIR
-	 * 
-	 * EDITAR? => NOME / TELEFONE / NOTA / SAIR
-	 * 
-	 * NOVO VALOR? => EXECUTA => FEEDBACK
-	 * 
-	 * PROP? => NOME / TELEFONE / NOTA / SAIR
-	 * 
-	 * 
-	 * APAGAR => APAGA => FEEDBACK
 	 */
-
+	public static void start() {
+		
+		
+		boolean session = true;
+		Integer op;
+		Cli.showTxt(
+				"Bem vindo!\n"
+				+ "\nSistema de cadastro Foobar " + DateManager.printDateTime(new Date())
+				);
+		while(session == true) {
+			op = Menu.menuPrincipal();
+			switch(op) {
+				case 1:
+					register();
+					break;
+				case 3:
+					search();
+					break;
+				case 4:
+					session = Menu.sessionAlert();
+					break;
+				case 5:
+					Cli.showTxt(listIndividuos());
+					break;
+				case 6:
+					Cli.showTxt(listPessoas());
+					break;
+				case 7:
+					Cli.showTxt(listAlunos());
+					break;
+			}
+		}
+		Cli.showTxt(
+				"Fim da Seção"
+				);
+	}
 }

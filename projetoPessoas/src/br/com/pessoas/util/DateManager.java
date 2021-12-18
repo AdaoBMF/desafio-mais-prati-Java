@@ -3,7 +3,7 @@ package br.com.pessoas.util;
 import java.text.*;
 import java.util.*;
 
-import br.com.pessoas.guiControll.Cli;
+import br.com.pessoas.UiControll.Cli;
 
 /**
  * Classe auxiliar para gerenciar datas
@@ -13,23 +13,17 @@ import br.com.pessoas.guiControll.Cli;
  */
 public class DateManager {
 	
-	//Criando os obj usados para auxuliar a formatacao das datas nos metodos
+	//obj usados para auxuliar a formatacao das datas nos metodos
 	private static DateFormat dayF = new SimpleDateFormat("dd/MM/yyyy");
-//	private static DateFormat dayTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	private static DateFormat dayTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 	
-	/*
-	public static Date formDateTime(String entry) {
-		Date date = null;
-		try {
-			date = dayTime.parse(entry);
-		} catch (ParseException e) {}
-		return date;
-	}
-	*/
-
+	
 	public static String printDate(Date entry) {		
 		return dayF.format(entry);
+	}
+	public static String printDateTime(Date entry) {		
+		return dayTime.format(entry);
 	}
 	
 	/**

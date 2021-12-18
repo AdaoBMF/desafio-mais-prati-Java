@@ -1,4 +1,4 @@
-package br.com.pessoas.guiControll;
+package br.com.pessoas.UiControll;
 
 import javax.swing.JOptionPane;
 

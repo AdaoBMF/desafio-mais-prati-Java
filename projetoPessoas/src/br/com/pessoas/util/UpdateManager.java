@@ -1,7 +1,8 @@
 package br.com.pessoas.util;
 
 import java.util.Date;
-import br.com.pessoas.guiControll.Cli;
+
+import br.com.pessoas.UiControll.Cli;
 import br.com.pessoas.model.Individuo;
 
 public class UpdateManager {
@@ -24,7 +25,7 @@ public class UpdateManager {
 	}
 	
 	public static void updateFinalGrade(Individuo target) {
-		Double grade = GradeCheck.getGrade();
+		Double grade = GradeManager.getGrade();
 		target.setFinalGrade(grade);
 	}
 	

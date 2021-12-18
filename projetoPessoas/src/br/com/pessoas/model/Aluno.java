@@ -34,8 +34,9 @@ public class Aluno extends Individuo {
 	@Override
 	public String toString() {
 		return "\nAluno \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
-				+ DateManager.printDate(getBirthdate()) + "\nNota final: " + getFinalGrade() + " \nData de cadastro: " + getRegisterDate()
-				+ " \nÚltima atualização: " + getLastUpdate()
+				+ DateManager.printDate(getBirthdate()) + "\nNota final: " + getFinalGrade() + " \nData de cadastro: "
+				+ DateManager.printDateTime(getRegisterDate())
+				+ " \nÚltima atualização: " + DateManager.printDateTime(getLastUpdate())
 				+ "\n------------------------------------------------------------\n";
 	}
 
