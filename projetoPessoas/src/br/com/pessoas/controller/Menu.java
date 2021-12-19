@@ -61,13 +61,13 @@ public class Menu {
 					+" [1] Todos "
 					+"[2] Pessoas "
 					+"[3] Alunos "
-					+"[4] Sair "
+					+"[4] Voltar "
 					+"\nOpção: "
 					);
 			try {
 				int entry = Cli.getInt();
 				if(entry >=1 && entry <= 4) {
-					op = entry == 1 ? 5 : entry == 2 ? 6 : entry == 3 ? 7 : entry ;
+					op = entry == 1 ? 5 : entry == 2 ? 6 : entry == 3 ? 7 : 8 ;
 				}else {
 					Cli.showTxt(warning);
 				}
@@ -90,7 +90,7 @@ public class Menu {
 					"Opções: "
 					+" [1] Editar(Nome/Telefone/Data de Nascimento/Nota Final) "
 					+"[2] Excluír "
-					+"[3] Sair "
+					+"[3] Voltar "
 					+"\nOpção: "
 					);
 			try {
@@ -151,7 +151,7 @@ public class Menu {
 			
 			//se não for a primeira execucao mostra um warning
 			if(!check.equals("first")) Cli.showTxt("Aviso!\nDigite apenas S ou N ");
-			Cli.showTxt("Insrir nota? S/N ");
+			Cli.showTxt("Inserir nota? S/N ");
 			check = Cli.getTxt();			
 		}
 		if(check.equalsIgnoreCase("S")) {
@@ -177,8 +177,8 @@ public class Menu {
 			
 			check = Gui.getTxt(
 					"Aviso!"
-					+"\nAo sair da seção, todos os dados serão perdidos"
-					+ "Deseja finalizar a seção? S/N "
+					+"\nAo sair da sessão, todos os dados serão perdidos"
+					+ "\nDeseja finalizar a sessão? S/N "
 					);
 		}
 		if(check.equalsIgnoreCase("S")) {

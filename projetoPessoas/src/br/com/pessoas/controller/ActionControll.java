@@ -8,9 +8,7 @@ import br.com.pessoas.UiControll.Cli;
 import br.com.pessoas.model.Aluno;
 import br.com.pessoas.model.Individuo;
 import br.com.pessoas.model.Pessoa;
-import br.com.pessoas.util.DateManager;
-import br.com.pessoas.util.GradeManager;
-import br.com.pessoas.util.UpdateManager;
+import br.com.pessoas.util.*;
 
 /**
  * Classe que contem os metodos que efetuam as demandas(CRUD) do usuario
@@ -214,6 +212,7 @@ public class ActionControll {
 				);
 		while(session == true) {
 			op = Menu.menuPrincipal();
+			TerminalManager.clear();
 			switch(op) {
 				case 1:
 					register();
@@ -233,10 +232,12 @@ public class ActionControll {
 				case 7:
 					Cli.showTxt(listAlunos());
 					break;
+				case 8:
+					continue;
 			}
 		}
 		Cli.showTxt(
-				"Fim da Seção"
+				"Fim da Sessão"
 				);
 	}
 }
