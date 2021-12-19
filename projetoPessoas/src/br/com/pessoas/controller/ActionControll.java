@@ -100,11 +100,15 @@ public class ActionControll {
 	 * Metodo que lista todos os Individuos armazenados
 	 */
 	private static String listIndividuos() {
-		try {
-			Collections.sort(individuos);
-			return individuos.toString().replace(",", "");			
-		}catch(Exception e) {
-			return "Nenhum Registro Encontrado";
+		if(individuos.size() > 0) {
+			try {
+				Collections.sort(individuos);
+				return individuos.toString().replace(",", "");			
+			}catch(Exception e) {
+				return "Nenhum Registro Encontrado";
+			}
+		}else {
+			return "O Cadastro Está Vazio";
 		}
 	}
 
@@ -123,8 +127,12 @@ public class ActionControll {
 					arr.add((Aluno) ind);
 				}
 			}
-			Collections.sort(arr);
-			return arr.toString().replace(",", "");
+			if(arr.size() > 0) {
+				Collections.sort(arr);
+				return arr.toString().replace(",", "");				
+			}else {
+				return "Nenhum Aluno registrado";
+			}
 		}catch(Exception e) {
 			return "Nenhum Registro Encontrado";
 		}
@@ -145,8 +153,12 @@ public class ActionControll {
 					arr.add((Pessoa) ind);
 				}
 			}
-			Collections.sort(arr);
-			return arr.toString().replace(",", "");
+			if(arr.size() > 0) {
+				Collections.sort(arr);
+				return arr.toString().replace(",", "");				
+			}else {
+				return "Nenhuma Pessoa registrada";
+			}
 		}catch(Exception e) {
 			return "Nenhum Registro Encontrado";
 		}
