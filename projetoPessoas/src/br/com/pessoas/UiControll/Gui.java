@@ -16,7 +16,16 @@ public class Gui {
 	 * @return String 
 	 */
 	public static String getTxt(String msg) {
-		return JOptionPane.showInputDialog(msg);
+		boolean start = true;
+		String entry = "";
+		while(true) {
+			if(start !=true) Gui.showTxt("Insira um Valor Válido"); 
+			entry = JOptionPane.showInputDialog(msg).trim();
+			if(!entry.equals("")) {
+				return entry;
+			}
+			start =false;
+		}
 	}
 
 	/**

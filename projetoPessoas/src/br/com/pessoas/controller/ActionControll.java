@@ -224,7 +224,6 @@ public class ActionControll {
 				);
 		while(session == true) {
 			op = Menu.menuPrincipal();
-			TerminalManager.clear();
 			switch(op) {
 				case 1:
 					register();

@@ -20,8 +20,17 @@ public class Cli {
 	 * @param msg
 	 * @return String 
 	 */
-	public static String getTxt() {		
-		return sc.nextLine();
+	public static String getTxt() {
+		boolean start = true;
+		String entry = "";
+		while(true) {
+			if(start !=true) Cli.showTxt("Insira um Valor Válido");
+			entry = sc.nextLine().trim();
+			if(!entry.equals("")) {
+				return entry;
+			}
+			start = false;
+		}
 	}
 
 	/**
