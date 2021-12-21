@@ -2,8 +2,6 @@ package br.com.pessoas.UiControll;
 
 import java.util.Scanner;
 
-
-
 /**
  * Classe responsavel por possibilitar a interacao do usuario via terminal
  * 
@@ -11,22 +9,23 @@ import java.util.Scanner;
  *
  */
 public class Cli {
-	
+
 	private static Scanner sc = new Scanner(System.in);
-	
+
 	/**
-	 * metodo que recebe uma entrada(String) do usuario
+	 * Metodo que recebe uma entrada(String) do usuario
 	 * 
 	 * @param msg
-	 * @return String 
+	 * @return String
 	 */
 	public static String getTxt() {
 		boolean start = true;
 		String entry = "";
-		while(true) {
-			if(start !=true) Cli.showTxt("Insira um Valor Válido");
+		while (true) {
+			if (start != true)
+				Cli.showTxt("Insira um Valor Válido");
 			entry = sc.nextLine().trim();
-			if(!entry.equals("")) {
+			if (!entry.equals("")) {
 				return entry;
 			}
 			start = false;
@@ -34,32 +33,32 @@ public class Cli {
 	}
 
 	/**
-	 * metodo que recebe uma entrada(int) do usuario
+	 * Metodo que recebe uma entrada(int) do usuario
 	 * 
 	 * @param msg
-	 * @return int 
+	 * @return int
 	 */
 	public static int getInt() {
 		return Integer.parseInt(sc.nextLine());
 	}
-	
+
 	/**
-	 * metodo que recebe uma entrada(double) do usuario
+	 * Metodo que recebe uma entrada(double) do usuario
 	 * 
 	 * @param msg
-	 * @return double 
+	 * @return double
 	 */
 	public static double getDouble() {
 		return Double.parseDouble(sc.nextLine().replace(",", "."));
 	}
-	
+
 	/**
-	 * metodo que exibe um output destinado ao usuario
+	 * Metodo que exibe um output destinado ao usuario
 	 * 
 	 * @param txt
 	 */
-	public static void showTxt(String txt){
-		System.out.print("\n"+txt);
+	public static void showTxt(String txt) {
+		System.out.print("\n" + txt);
 	}
 
 }

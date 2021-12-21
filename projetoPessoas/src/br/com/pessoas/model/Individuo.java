@@ -9,8 +9,6 @@ import java.util.Date;
  *
  */
 public abstract class Individuo implements Comparable<Individuo> {
-
-	// definicao das propriedades da classe
 	private String name;
 	private String phone;
 	private Date birthdate;
@@ -35,7 +33,6 @@ public abstract class Individuo implements Comparable<Individuo> {
 		this.lastUpdate = new Date();
 	}
 
-	//Getters and Setters
 	public String getName() {
 		return name;
 	}
@@ -89,14 +86,12 @@ public abstract class Individuo implements Comparable<Individuo> {
 	public int compareTo(Individuo ind) {
 		int check = 0;
 		if (this.name.length() > ind.getName().length()) {
-
 			for (int i = 0; i < ind.getName().length(); i++) {
 				check = this.name.charAt(i) > ind.getName().charAt(i) ? 1
 						: this.name.charAt(i) < ind.getName().charAt(i) ? -1 : 0;
 				if (check != 0)
 					return check;
 			}
-
 		} else {
 			for (int i = 0; i < this.name.length(); i++) {
 				check = this.name.charAt(i) > ind.getName().charAt(i) ? 1
@@ -104,7 +99,6 @@ public abstract class Individuo implements Comparable<Individuo> {
 				if (check != 0)
 					return check;
 			}
-
 		}
 		return check;
 	}

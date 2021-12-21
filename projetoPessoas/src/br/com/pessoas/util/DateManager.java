@@ -12,20 +12,19 @@ import br.com.pessoas.UiControll.Cli;
  *
  */
 public class DateManager {
-	
-	//obj usados para auxuliar a formatacao das datas nos metodos
+
+	// obj usados para formatar as datas nos metodos
 	private static DateFormat dayF = new SimpleDateFormat("dd/MM/yyyy");
 	private static DateFormat dayTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-	
-	
-	public static String printDate(Date entry) {		
+	public static String printDate(Date entry) {
 		return dayF.format(entry);
 	}
-	public static String printDateTime(Date entry) {		
+
+	public static String printDateTime(Date entry) {
 		return dayTime.format(entry);
 	}
-	
+
 	/**
 	 * Metodo auxiliar que recebe e valida a entrada do dia que ira compor a data
 	 * 
@@ -44,7 +43,8 @@ public class DateManager {
 				if (entry > 0 && entry <= 31) {
 					day = entry > 10 ? "0" + entry : day + entry;
 				}
-			} catch (Exception e) {}
+			} catch (Exception e) {
+			}
 
 			check = true;
 		}
@@ -52,7 +52,8 @@ public class DateManager {
 	}
 
 	/**
-	 * Metodo auxiliar que recebe e valida a entrada do mes(numeral) que ira compor a data
+	 * Metodo auxiliar que recebe e valida a entrada do mes(numeral) que ira compor
+	 * a data
 	 * 
 	 * @return String
 	 */
@@ -69,14 +70,15 @@ public class DateManager {
 				if (entry > 0 && entry <= 12) {
 					month = entry > 10 ? "0" + entry : month + entry;
 				}
-			} catch (Exception e) {}
+			} catch (Exception e) {
+			}
 			check = true;
 		}
 		return month;
 	}
 
 	/**
-	 * Metodo auxiliar que recebe e valida a entrada do ano que ira compor a data 
+	 * Metodo auxiliar que recebe e valida a entrada do ano que ira compor a data
 	 * 
 	 * @return String
 	 */
@@ -93,14 +95,16 @@ public class DateManager {
 				if (entry >= 1920 && entry <= 2021) {
 					year += entry;
 				}
-			} catch (Exception e) {}
+			} catch (Exception e) {
+			}
 			check = true;
 		}
 		return year;
 	}
 
 	/**
-	 * Metodo que recebe a entrada do usuario valida, formata e retorna em formato Date 
+	 * Metodo que recebe as entradas do usuario, valida, formata e retorna em
+	 * formato Date
 	 * 
 	 * @return Date
 	 */

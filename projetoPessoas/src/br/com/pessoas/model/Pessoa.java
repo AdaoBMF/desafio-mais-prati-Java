@@ -10,7 +10,7 @@ import br.com.pessoas.util.DateManager;
  *
  */
 public class Pessoa extends Individuo {
-	
+
 	/**
 	 * Construtor da classe Pessoa
 	 * 
@@ -19,9 +19,7 @@ public class Pessoa extends Individuo {
 	 * @param birthdate
 	 */
 	public Pessoa(String name, String phone, Date birthdate) {
-		//chama o construtor padrao da classe pai(no caso desta classe é o suficiente)
-		super(name, phone, birthdate);		
-		
+		super(name, phone, birthdate);
 	}
 
 	/**
@@ -30,11 +28,10 @@ public class Pessoa extends Individuo {
 	 */
 	@Override
 	public String toString() {
-		return "\nPessoa \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: " 
-				+ DateManager.printDate(getBirthdate()) + " \nData de cadastro: " 
-				+ DateManager.printDateTime(getRegisterDate())
-				+ " \nÚltima atualização: " + DateManager.printDateTime(getLastUpdate())
-				+"\n------------------------------------------------------------\n";
+		return "\nPessoa \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
+				+ DateManager.printDate(getBirthdate()) + " \nData de cadastro: "
+				+ DateManager.printDateTime(getRegisterDate()) + " \nÚltima atualização: "
+				+ DateManager.printDateTime(getLastUpdate())
+				+ "\n------------------------------------------------------------\n";
 	}
-	
 }

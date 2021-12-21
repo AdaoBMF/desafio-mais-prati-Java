@@ -5,6 +5,12 @@ import java.util.Date;
 import br.com.pessoas.UiControll.Cli;
 import br.com.pessoas.model.Individuo;
 
+/**
+ * Classe responsavel por executar/gerenciar as edicoes dos objetos
+ * 
+ * @author Adao Vieira
+ *
+ */
 public class UpdateManager {
 	
 	public static void updateName(Individuo target) {

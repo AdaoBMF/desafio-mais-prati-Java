@@ -29,7 +29,7 @@ public class ActionControll {
 		String name = Cli.getTxt();
 		Cli.showTxt("Telefone: ");
 		String phone = Cli.getTxt();
-		Cli.showTxt("Data de nascimento: (dd/mm/aaaa) ");
+		Cli.showTxt("Data de nascimento: (dd/mm/aaaa)\n");
 		Date birthdate = DateManager.inputDate();
 		Double finalGrade = Menu.gradeCheck() ? GradeManager.getGrade() : null;
 
@@ -48,9 +48,9 @@ public class ActionControll {
 	}
 
 	/**
-	 * Metodo que retorna um individuo pesquisado pelo nome
+	 * Metodo que retorna um individuo pesquisado pelo nome completo
 	 * 
-	 * @param nome
+	 * @param nome completo
 	 * @return Individuo
 	 */
 	private static Individuo getIndByName(String search) {
@@ -62,58 +62,58 @@ public class ActionControll {
 		}
 		return ind;
 	}
-	
+
+	/**
+	 * Metodo que auxilia/gerencia a edicao ou exclusao de um individuo
+	 */
 	private static void search() {
-		
 		Individuo ind = null;
 		int op = 0;
-		int prop =0;
-		
+		int prop = 0;
 		Cli.showTxt("Insira o nome completo do Registro: ");
 		String target = Cli.getTxt();
 		try {
 			ind = getIndByName(target);
 			Cli.showTxt(ind.toString());
-		}catch(Exception e) {
+		} catch (Exception e) {
 			Cli.showTxt("Registro não encontrado");
 		}
-		if(ind != null) {
+		if (ind != null) {
 			op = Menu.menuEdit();
-			switch(op){
-				case 1:
-					prop = Menu.menuProp();
-					if(prop == 5)
-						break;
-					updateIndividuo(ind, prop);
+			switch (op) {
+			case 1:
+				prop = Menu.menuProp();
+				if (prop == 5)
 					break;
-				case 2:
-					deleteIndividuo(ind);
-					break;
-				case 3:
-					break;
+				updateIndividuo(ind, prop);
+				break;
+			case 2:
+				deleteIndividuo(ind);
+				break;
+			case 3:
+				break;
 			}
 		}
 	}
-
 
 	/**
 	 * Metodo que lista todos os Individuos armazenados
 	 */
 	private static String listIndividuos() {
-		if(individuos.size() > 0) {
+		if (individuos.size() > 0) {
 			try {
 				Collections.sort(individuos);
-				return individuos.toString().replace(",", "");			
-			}catch(Exception e) {
+				return individuos.toString().replace(",", "");
+			} catch (Exception e) {
 				return "Nenhum Registro Encontrado";
 			}
-		}else {
+		} else {
 			return "O Cadastro Está Vazio";
 		}
 	}
 
 	/**
-	 * Metodo que lista todos Alunos dastrados
+	 * Metodo que lista todos Alunos cadastrados
 	 * 
 	 * @return String
 	 */
@@ -127,13 +127,13 @@ public class ActionControll {
 					arr.add((Aluno) ind);
 				}
 			}
-			if(arr.size() > 0) {
+			if (arr.size() > 0) {
 				Collections.sort(arr);
-				return arr.toString().replace(",", "");				
-			}else {
+				return arr.toString().replace(",", "");
+			} else {
 				return "Nenhum Aluno registrado";
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			return "Nenhum Registro Encontrado";
 		}
 	}
@@ -153,13 +153,13 @@ public class ActionControll {
 					arr.add((Pessoa) ind);
 				}
 			}
-			if(arr.size() > 0) {
+			if (arr.size() > 0) {
 				Collections.sort(arr);
-				return arr.toString().replace(",", "");				
-			}else {
+				return arr.toString().replace(",", "");
+			} else {
 				return "Nenhuma Pessoa registrada";
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			return "Nenhum Registro Encontrado";
 		}
 	}
@@ -193,12 +193,9 @@ public class ActionControll {
 			}
 			UpdateManager.updateLastUpdate(ind);
 		}
-		Cli.showTxt(
-				"Cadastro atualizado\n"
-				+ind.toString()
-				);
+		Cli.showTxt("Cadastro atualizado\n" + ind.toString());
 	}
-	
+
 	/**
 	 * Metodo que exclui um individuo especifico
 	 * 
@@ -207,48 +204,42 @@ public class ActionControll {
 	private static void deleteIndividuo(Individuo target) {
 		String name = target.getName();
 		individuos.remove(target);
-		Cli.showTxt(name +" removido com sucesso.");		
+		Cli.showTxt(name + " removido com sucesso.");
 	}
-	
+
 	/**
-	 * 
+	 * Metodo que inicia a execucao do aplicativo e controla o fluxo dos inputs e
+	 * outputs/feedbacks
 	 */
 	public static void start() {
-		
-		
 		boolean session = true;
 		Integer op;
-		Cli.showTxt(
-				"Bem vindo!\n"
-				+ "\nSistema de cadastro Foobar " + DateManager.printDateTime(new Date())
-				);
-		while(session == true) {
+		Cli.showTxt("Bem vindo!\n" + "\nSistema de cadastro Foobar " + DateManager.printDateTime(new Date()));
+		while (session == true) {
 			op = Menu.menuPrincipal();
-			switch(op) {
-				case 1:
-					register();
-					break;
-				case 3:
-					search();
-					break;
-				case 4:
-					session = Menu.sessionAlert();
-					break;
-				case 5:
-					Cli.showTxt(listIndividuos());
-					break;
-				case 6:
-					Cli.showTxt(listPessoas());
-					break;
-				case 7:
-					Cli.showTxt(listAlunos());
-					break;
-				case 8:
-					continue;
+			switch (op) {
+			case 1:
+				register();
+				break;
+			case 3:
+				search();
+				break;
+			case 4:
+				session = Menu.sessionAlert();
+				break;
+			case 5:
+				Cli.showTxt(listIndividuos());
+				break;
+			case 6:
+				Cli.showTxt(listPessoas());
+				break;
+			case 7:
+				Cli.showTxt(listAlunos());
+				break;
+			case 8:
+				continue;
 			}
 		}
-		Cli.showTxt(
-				"Fim da Sessão"
-				);
+		Cli.showTxt("Fim da Sessão");
 	}
 }

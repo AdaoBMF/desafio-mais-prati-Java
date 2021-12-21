@@ -9,7 +9,7 @@ import br.com.pessoas.UiControll.*;
  *
  */
 public class GradeManager {
-	
+
 	/**
 	 * Metodo que valida e captura a nota final
 	 * 
@@ -17,18 +17,15 @@ public class GradeManager {
 	 */
 	public static Double getGrade() {
 		Double grade = null;
-		while(grade == null) {
+		while (grade == null) {
 			try {
 				Cli.showTxt("Digite a nota final: ");
-				grade = Cli.getDouble();				
-			}catch (Exception e) {
+				grade = Cli.getDouble();
+			} catch (Exception e) {
 				grade = null;
-				Cli.showTxt("Aviso!"
-						+" \nEntrada invalida. "
-						+"\nDigite apenas valores numéricos");
+				Cli.showTxt("Aviso!" + " \nEntrada invalida. " + "\nDigite apenas valores numéricos");
 			}
 		}
 		return grade;
 	}
-
 }
