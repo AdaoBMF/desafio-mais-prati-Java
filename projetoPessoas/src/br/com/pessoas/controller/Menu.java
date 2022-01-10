@@ -152,11 +152,12 @@ public class Menu {
 		while (!check.equalsIgnoreCase("S") && !check.equalsIgnoreCase("N")) {
 
 			// se não for a primeira execucao mostra um warning
-			if (!check.equals("first"))
-				Gui.showTxt("Aviso!\nDigite apenas S ou N ");
-
-			check = Gui.getTxt("Aviso!" + "\nAo sair da sessão, todos os dados serão perdidos"
+			if (!check.equals("first")) {
+				Cli.showTxt("Aviso!\nDigite apenas S ou N ");
+			}
+			Cli.showTxt("Aviso!" + "\nAo sair da sessão, todos os dados serão perdidos"
 					+ "\nDeseja finalizar a sessão? S/N ");
+			check = Cli.getTxt();
 		}
 		if (check.equalsIgnoreCase("S")) {
 			return false;

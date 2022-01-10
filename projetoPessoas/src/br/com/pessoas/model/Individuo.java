@@ -9,6 +9,8 @@ import java.util.Date;
  *
  */
 public abstract class Individuo implements Comparable<Individuo> {
+	
+	private final Integer ID;
 	private String name;
 	private String phone;
 	private Date birthdate;
@@ -24,8 +26,8 @@ public abstract class Individuo implements Comparable<Individuo> {
 	 * @param birthdate
 	 * @param registerDate
 	 */
-	public Individuo(String name, String phone, Date birthdate) {
-		super();
+	public Individuo(String name, String phone, Date birthdate, int ID) {
+		this.ID = ID;
 		this.name = name;
 		this.phone = phone;
 		this.birthdate = birthdate;
@@ -75,6 +77,10 @@ public abstract class Individuo implements Comparable<Individuo> {
 
 	public void setFinalGrade(double finalGrade) {
 		this.finalGrade = finalGrade;
+	}
+	
+	public Integer getID() {
+		return ID;
 	}
 
 	/**

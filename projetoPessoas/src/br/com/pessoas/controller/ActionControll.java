@@ -19,12 +19,14 @@ import br.com.pessoas.util.*;
 public class ActionControll {
 	// Array que ira armazenar os objetos criados durante a sessao
 	private static ArrayList<Individuo> individuos = new ArrayList<>();
+	private static int idCounter = 1;
 
 	/**
 	 * metodo que cria um objeto Individuo(Pessoa/Aluno) e o armazena na Array
 	 * individuos
 	 */
 	private static void register() {
+		Individuo ind = null;
 		Cli.showTxt("Nome: ");
 		String name = Cli.getTxt();
 		Cli.showTxt("Telefone: ");
@@ -35,12 +37,14 @@ public class ActionControll {
 
 		try {
 			if (finalGrade == null) {
-				Pessoa pessoa = new Pessoa(name, phone, birthdate);
-				individuos.add(pessoa);
+				ind = new Pessoa(name, phone, birthdate, idCounter);
+				individuos.add(ind);
 			} else {
-				Aluno aluno = new Aluno(name, phone, birthdate, finalGrade);
-				individuos.add(aluno);
+				ind = new Aluno(name, phone, birthdate, idCounter, finalGrade);
+				individuos.add(ind);
 			}
+			idCounter++;
+			Cli.showTxt("Registro criado " + ind.toString());
 		} catch (Exception e) {
 			Cli.showTxt("Não foi possivel concluir a inclusão" + "\nErro: " + e.toString());
 		}
@@ -50,18 +54,18 @@ public class ActionControll {
 	/**
 	 * Metodo que retorna um individuo pesquisado pelo nome completo
 	 * 
-	 * @param nome completo
+	 * @param int ID
 	 * @return Individuo
 	 */
-	private static Individuo getIndByName(String search) {
+	private static Individuo getIndById(int ID) {
 		Individuo ind = null;
-		for (Individuo obj : individuos) {
-			if (obj.getName().equalsIgnoreCase(search)) {
-				ind = obj;
-			}
+		for (Individuo obj: individuos) {
+			if (obj.getID() == ID) ind = obj;
 		}
 		return ind;
 	}
+	
+	
 
 	/**
 	 * Metodo que auxilia/gerencia a edicao ou exclusao de um individuo
@@ -70,10 +74,10 @@ public class ActionControll {
 		Individuo ind = null;
 		int op = 0;
 		int prop = 0;
-		Cli.showTxt("Insira o nome completo do Registro: ");
-		String target = Cli.getTxt();
+		Cli.showTxt("Insira o ID do Registro: ");
+		int target = Cli.getInt();
 		try {
-			ind = getIndByName(target);
+			ind = getIndById(target);
 			Cli.showTxt(ind.toString());
 		} catch (Exception e) {
 			Cli.showTxt("Registro não encontrado");

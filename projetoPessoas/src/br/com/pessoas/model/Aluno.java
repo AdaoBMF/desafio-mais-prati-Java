@@ -20,8 +20,8 @@ public class Aluno extends Individuo {
 	 * @param birthdate
 	 * @param finalGrade
 	 */
-	public Aluno(String name, String phone, Date birthdate, Double finalGrade) {
-		super(name, phone, birthdate);
+	public Aluno(String name, String phone, Date birthdate,int ID, Double finalGrade) {
+		super(name, phone, birthdate, ID);
 		this.setFinalGrade(finalGrade);
 	}
 
@@ -31,7 +31,7 @@ public class Aluno extends Individuo {
 	 */
 	@Override
 	public String toString() {
-		return "\nAluno \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
+		return "\nAluno ID " + this.getID() + " \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
 				+ DateManager.printDate(getBirthdate()) + "\nNota final: " + getFinalGrade() + " \nData de cadastro: "
 				+ DateManager.printDateTime(getRegisterDate()) + " \nÚltima atualização: "
 				+ DateManager.printDateTime(getLastUpdate())

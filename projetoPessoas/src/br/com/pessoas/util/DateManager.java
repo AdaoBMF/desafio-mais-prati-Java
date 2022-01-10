@@ -13,7 +13,6 @@ import br.com.pessoas.UiControll.Cli;
  */
 public class DateManager {
 
-	// obj usados para formatar as datas nos metodos
 	private static DateFormat dayF = new SimpleDateFormat("dd/MM/yyyy");
 	private static DateFormat dayTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 

@@ -18,8 +18,8 @@ public class Pessoa extends Individuo {
 	 * @param phone
 	 * @param birthdate
 	 */
-	public Pessoa(String name, String phone, Date birthdate) {
-		super(name, phone, birthdate);
+	public Pessoa(String name, String phone, Date birthdate, int ID) {
+		super(name, phone, birthdate, ID);
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class Pessoa extends Individuo {
 	 */
 	@Override
 	public String toString() {
-		return "\nPessoa \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
+		return "\nPessoa ID " + this.getID() + " \nNome: " + getName() + " \nTelefone: " + getPhone() + " \nData de nascimento: "
 				+ DateManager.printDate(getBirthdate()) + " \nData de cadastro: "
 				+ DateManager.printDateTime(getRegisterDate()) + " \nÚltima atualização: "
 				+ DateManager.printDateTime(getLastUpdate())
