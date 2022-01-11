@@ -2,7 +2,7 @@ package br.com.pessoas.UiControll;
 
 import java.util.Scanner;
 
-import br.com.pessoas.util.StringCheck;
+import br.com.pessoas.util.EntryCheck;
 
 /**
  * Classe responsavel por possibilitar a interacao do usuario via terminal
@@ -27,7 +27,7 @@ public class Cli {
 			if (start != true)
 				Cli.showTxt("Insira um Valor Válido: ");
 			entry = sc.nextLine().trim();
-			if (!entry.equals("") && StringCheck.stringCheck(entry)) {
+			if (!entry.equals("") && EntryCheck.stringCheck(entry)) {
 				return entry;
 			}
 			start = false;

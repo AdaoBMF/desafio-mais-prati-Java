@@ -1,6 +1,7 @@
 package br.com.pessoas.controller;
 
-import br.com.pessoas.UiControll.*;
+import br.com.pessoas.UiControll.Cli;
+import br.com.pessoas.model.Individuo;
 
 /**
  * Classe responsavel pro controlar a interacao com o usuario, disponibilizando
@@ -11,7 +12,7 @@ import br.com.pessoas.UiControll.*;
  */
 public class Menu {
 
-	private static String warning = "Aviso!\nOpção Inválida \nDigite apenas o número da Operação desejada";
+	private static String warning = "\nAviso!\nOpção Inválida \nDigite apenas o número da Operação desejada";
 
 	/**
 	 * Metodo que executa a interface principal de interacao do usuario com as
@@ -53,7 +54,7 @@ public class Menu {
 
 		int op = 0;
 		while (op == 0) {
-			Cli.showTxt("LIstar: " + " [1] Todos " + "[2] Pessoas " + "[3] Alunos " + "[4] Voltar " + "\nOpção: ");
+			Cli.showTxt("\nLIstar: " + " [1] Todos " + "[2] Pessoas " + "[3] Alunos " + "[4] Voltar " + "\nOpção: ");
 			try {
 				int entry = Cli.getInt();
 				if (entry >= 1 && entry <= 4) {
@@ -76,7 +77,7 @@ public class Menu {
 	public static int menuEdit() {
 		int op = 0;
 		while (op == 0) {
-			Cli.showTxt("Opções: " + " [1] Editar(Nome/Telefone/Data de Nascimento/Nota Final) " + "[2] Excluír "
+			Cli.showTxt("\nOpções: " + " [1] Editar(Nome/Telefone/Data de Nascimento/Nota Final) " + "[2] Excluír "
 					+ "[3] Voltar " + "\nOpção: ");
 			try {
 				int entry = Cli.getInt();
@@ -101,7 +102,7 @@ public class Menu {
 
 		int op = 0;
 		while (op == 0) {
-			Cli.showTxt("Opções: " + " [1] Editar Nome " + " [2] Editar Telefone " + " [3] Editar Data de Nascimento "
+			Cli.showTxt("\nOpções: " + " [1] Editar Nome " + " [2] Editar Telefone " + " [3] Editar Data de Nascimento "
 					+ " [4] Editar Nota Final " + " [5] Sair " + "\nOpção: ");
 			try {
 				int entry = Cli.getInt();
@@ -129,7 +130,7 @@ public class Menu {
 
 			// se não for a primeira execucao mostra um warning
 			if (!check.equals("first"))
-				Cli.showTxt("Aviso!\nDigite apenas S ou N ");
+				Cli.showTxt("\nAviso!\nDigite apenas S ou N ");
 			Cli.showTxt("Inserir nota? S/N ");
 			check = Cli.getTxt();
 		}
@@ -153,9 +154,9 @@ public class Menu {
 
 			// se não for a primeira execucao mostra um warning
 			if (!check.equals("first")) {
-				Cli.showTxt("Aviso!\nDigite apenas S ou N ");
+				Cli.showTxt("\nAviso!\nDigite apenas S ou N ");
 			}
-			Cli.showTxt("Aviso!" + "\nAo sair da sessão, todos os dados serão perdidos"
+			Cli.showTxt("\nAviso!" + "\nAo sair da sessão, todos os dados serão perdidos"
 					+ "\nDeseja finalizar a sessão? S/N ");
 			check = Cli.getTxt();
 		}
@@ -163,6 +164,25 @@ public class Menu {
 			return false;
 		} else {
 			return true;
+		}
+	}
+	
+	public static boolean deleteAlert(Individuo ind) {
+		
+		String check = "first";
+		while (!check.equalsIgnoreCase("S") && !check.equalsIgnoreCase("N")) {
+			if (!check.equals("first")) {
+				Cli.showTxt("Aviso!\nDigite apenas S ou N ");
+			}
+			Cli.showTxt("\nAviso!" 
+						+ "O Registro " + ind.getName() + " Será Excluído"
+						+ "\nDeseja Confirmar a Exclusão? S/N ");
+			check = Cli.getTxt();
+		}
+		if (check.equalsIgnoreCase("S")) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 

@@ -206,9 +206,14 @@ public class ActionControll {
 	 * @param target
 	 */
 	private static void deleteIndividuo(Individuo target) {
-		String name = target.getName();
-		individuos.remove(target);
-		Cli.showTxt(name + " removido com sucesso.");
+		boolean confirm = Menu.deleteAlert(target);
+		if(confirm) {
+			String name = target.getName();
+			individuos.remove(target);
+			Cli.showTxt("Registro " + name + " removido com sucesso. \n");
+		}else {
+			Cli.showTxt("Exclusão cancelada \n");
+		}
 	}
 
 	/**

@@ -1,7 +1,9 @@
 package br.com.pessoas.util;
 
-import java.text.*;
-import java.util.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import br.com.pessoas.UiControll.Cli;
 
@@ -29,10 +31,10 @@ public class DateManager {
 	 * 
 	 * @return String
 	 */
-	private static String inputDay() {
-		String day = "";
+	private static Integer inputDay() {
+		int day = 0;
 		Boolean check = false;
-		while (day.length() == 0) {
+		while (day == 0) {
 			if (check == true) {
 				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 31");
 			}
@@ -40,7 +42,7 @@ public class DateManager {
 			try {
 				Integer entry = Cli.getInt();
 				if (entry > 0 && entry <= 31) {
-					day = entry > 10 ? "0" + entry : day + entry;
+					day = entry;
 				}
 			} catch (Exception e) {
 			}
@@ -56,10 +58,10 @@ public class DateManager {
 	 * 
 	 * @return String
 	 */
-	private static String inputMonth() {
-		String month = "";
+	private static Integer inputMonth() {
+		int month = 0;
 		Boolean check = false;
-		while (month.length() == 0) {
+		while (month == 0) {
 			if (check == true) {
 				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 12");
 			}
@@ -67,7 +69,7 @@ public class DateManager {
 			try {
 				Integer entry = Cli.getInt();
 				if (entry > 0 && entry <= 12) {
-					month = entry > 10 ? "0" + entry : month + entry;
+					month = entry;
 				}
 			} catch (Exception e) {
 			}
@@ -81,10 +83,10 @@ public class DateManager {
 	 * 
 	 * @return String
 	 */
-	private static String inputYear() {
-		String year = "";
+	private static Integer inputYear() {
+		int year = 0;
 		Boolean check = false;
-		while (year.length() == 0) {
+		while (year == 0) {
 			if (check == true) {
 				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números ");
 			}
@@ -92,7 +94,7 @@ public class DateManager {
 			try {
 				Integer entry = Cli.getInt();
 				if (entry >= 1920 && entry <= 2021) {
-					year += entry;
+					year = entry;
 				}
 			} catch (Exception e) {
 			}
@@ -109,10 +111,19 @@ public class DateManager {
 	 */
 	public static Date inputDate() {
 		Date date = null;
-		String day = inputDay();
-		String month = inputMonth();
-		String year = inputYear();
-		String str = String.format("%s/%s/%s", day, month, year);
+		String str = "";
+		Boolean check = true;
+		while(check) {
+			Integer day = inputDay();
+			Integer month = inputMonth();
+			Integer year = inputYear();
+			if(EntryCheck.checkDate(day, month, year)) {
+				str = String.format("%s/%s/%s", day, month, year);
+				check = false;
+			}else {
+				Cli.showTxt("Aviso! \nData Inválida \n");
+			}
+		}
 		try {
 			date = dayF.parse(str);
 		} catch (ParseException e) {
