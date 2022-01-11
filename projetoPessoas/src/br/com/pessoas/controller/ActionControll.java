@@ -30,7 +30,7 @@ public class ActionControll {
 		Cli.showTxt("Nome: ");
 		String name = Cli.getTxt();
 		Cli.showTxt("Telefone: ");
-		String phone = Cli.getTxt();
+		String phone = Cli.getPhone();
 		Cli.showTxt("Data de nascimento: (dd/mm/aaaa)\n");
 		Date birthdate = DateManager.inputDate();
 		Double finalGrade = Menu.gradeCheck() ? GradeManager.getGrade() : null;
@@ -224,7 +224,7 @@ public class ActionControll {
 		boolean session = true;
 		Integer op;
 		Cli.showTxt("Bem vindo!\n" + "\nSistema de cadastro Foobar " + DateManager.printDateTime(new Date()));
-		while (session == true) {
+		while (session) {
 			op = Menu.menuPrincipal();
 			switch (op) {
 			case 1:

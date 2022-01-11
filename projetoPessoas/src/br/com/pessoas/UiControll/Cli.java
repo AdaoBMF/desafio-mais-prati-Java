@@ -17,20 +17,41 @@ public class Cli {
 	/**
 	 * Metodo que recebe uma entrada(String) do usuario
 	 * 
-	 * @param msg
 	 * @return String
 	 */
 	public static String getTxt() {
-		boolean start = true;
+		boolean first = true;
 		String entry = "";
 		while (true) {
-			if (start != true)
+			if (!first) {
 				Cli.showTxt("Insira um Valor Válido: ");
+			}
 			entry = sc.nextLine().trim();
 			if (!entry.equals("") && EntryCheck.stringCheck(entry)) {
 				return entry;
 			}
-			start = false;
+			first = false;
+		}
+	}
+	
+	
+	/**
+	 * Metodo que capta e valida numero de telefone com 10 a 12 digitos
+	 * 
+	 * @return string numerica
+	 */
+	public static String getPhone() {
+		boolean first = true;
+		String entry = "";
+		while (true) {
+			if (!first) {
+				Cli.showTxt("Insira um Valor Válido: ");
+			}
+			entry = sc.nextLine().trim();
+			if (!entry.equals("") && EntryCheck.PhoneCheck(entry)) {
+				return entry;
+			}
+			first = false;
 		}
 	}
 
@@ -51,6 +72,7 @@ public class Cli {
 	 * @return double
 	 */
 	public static double getDouble() {
+		// Caso usado em OS configurado em ingles  o tratamento ( "," <-> "." )deve ser invertido 
 		return Double.parseDouble(sc.nextLine().replace(",", "."));
 	}
 

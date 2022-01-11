@@ -33,9 +33,9 @@ public class DateManager {
 	 */
 	private static Integer inputDay() {
 		int day = 0;
-		Boolean check = false;
+		Boolean first = true;
 		while (day == 0) {
-			if (check == true) {
+			if (!first) {
 				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 31");
 			}
 			Cli.showTxt("Digite o dia do mês ");
@@ -47,7 +47,7 @@ public class DateManager {
 			} catch (Exception e) {
 			}
 
-			check = true;
+			first = false;
 		}
 		return day;
 	}
@@ -60,9 +60,9 @@ public class DateManager {
 	 */
 	private static Integer inputMonth() {
 		int month = 0;
-		Boolean check = false;
+		Boolean first = true;
 		while (month == 0) {
-			if (check == true) {
+			if (!first) {
 				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 12");
 			}
 			Cli.showTxt("Digite o nº do mês ");
@@ -73,7 +73,7 @@ public class DateManager {
 				}
 			} catch (Exception e) {
 			}
-			check = true;
+			first = false;
 		}
 		return month;
 	}
@@ -85,9 +85,9 @@ public class DateManager {
 	 */
 	private static Integer inputYear() {
 		int year = 0;
-		Boolean check = false;
+		Boolean first = true;
 		while (year == 0) {
-			if (check == true) {
+			if (!first) {
 				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números ");
 			}
 			Cli.showTxt("Digite o ano ");
@@ -98,7 +98,7 @@ public class DateManager {
 				}
 			} catch (Exception e) {
 			}
-			check = true;
+			first = false;
 		}
 		return year;
 	}
@@ -117,7 +117,7 @@ public class DateManager {
 			Integer day = inputDay();
 			Integer month = inputMonth();
 			Integer year = inputYear();
-			if(EntryCheck.checkDate(day, month, year)) {
+			if(EntryCheck.dateCheck(day, month, year)) {
 				str = String.format("%s/%s/%s", day, month, year);
 				check = false;
 			}else {
