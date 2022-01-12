@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class EntryCheck {
 	
-	public static boolean stringCheck(String str) {
-		Pattern p = Pattern.compile("[!@#$%&*()_+=|<>?{}\\\\[\\\\]-,.;:]");
+	public static Boolean alphaCheck(String str) {
+		Pattern p = Pattern.compile("[!@#$%&*()_+=|<>?{}\\\\[\\\\]-,.;:0-9]");
 		Matcher m = p.matcher(str);
 		return !m.find();
 	}

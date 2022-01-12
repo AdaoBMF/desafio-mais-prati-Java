@@ -24,10 +24,26 @@ public class Cli {
 		String entry = "";
 		while (true) {
 			if (!first) {
-				Cli.showTxt("Insira um Valor Válido: ");
+				Cli.showTxt("Insira uma Entrada Válida: ");
 			}
 			entry = sc.nextLine().trim();
-			if (!entry.equals("") && EntryCheck.stringCheck(entry)) {
+			if (!entry.equals("")) {
+				return entry;
+			}
+			first = false;
+		}
+	}
+	
+	public static String getAlpha() {
+		
+		boolean first = true;
+		String entry = "";
+		while (true) {
+			if (!first) {
+				Cli.showTxt("Insira uma Entrada Válida: (apenas letras) ");
+			}
+			entry = sc.nextLine().trim();
+			if (!entry.equals("") && EntryCheck.alphaCheck(entry)) {
 				return entry;
 			}
 			first = false;
@@ -45,7 +61,7 @@ public class Cli {
 		String entry = "";
 		while (true) {
 			if (!first) {
-				Cli.showTxt("Insira um Valor Válido: ");
+				Cli.showTxt("Insira um Número Válido: (apenas números de 8 a 15 digitos)");
 			}
 			entry = sc.nextLine().trim();
 			if (!entry.equals("") && EntryCheck.PhoneCheck(entry)) {

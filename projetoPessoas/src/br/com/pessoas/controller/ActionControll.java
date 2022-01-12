@@ -28,8 +28,8 @@ public class ActionControll {
 	private static void register() {
 		Individuo ind = null;
 		Cli.showTxt("Nome: ");
-		String name = Cli.getTxt();
-		Cli.showTxt("Telefone: ");
+		String name = Cli.getAlpha();
+		Cli.showTxt("Telefone: (apenas números de 8 a 15 digitos) ");
 		String phone = Cli.getPhone();
 		Cli.showTxt("Data de nascimento: (dd/mm/aaaa)\n");
 		Date birthdate = DateManager.inputDate();
@@ -44,7 +44,7 @@ public class ActionControll {
 				individuos.add(ind);
 			}
 			idCounter++;
-			Cli.showTxt("Registro criado " + ind.toString());
+			Cli.showTxt("Registro criado \n" + ind.toString());
 		} catch (Exception e) {
 			Cli.showTxt("Não foi possivel concluir a inclusão" + "\nErro: " + e.toString());
 		}

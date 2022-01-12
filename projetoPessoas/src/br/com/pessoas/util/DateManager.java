@@ -36,7 +36,7 @@ public class DateManager {
 		Boolean first = true;
 		while (day == 0) {
 			if (!first) {
-				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 31");
+				Cli.showTxt("Aviso!\nEntrada inválida\n \nDigite apenas números de 1 a 31");
 			}
 			Cli.showTxt("Digite o dia do mês ");
 			try {
@@ -63,7 +63,7 @@ public class DateManager {
 		Boolean first = true;
 		while (month == 0) {
 			if (!first) {
-				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números de 1 a 12");
+				Cli.showTxt("Aviso!\nEntrada inválida\n \nDigite apenas números de 1 a 12");
 			}
 			Cli.showTxt("Digite o nº do mês ");
 			try {
@@ -88,7 +88,7 @@ public class DateManager {
 		Boolean first = true;
 		while (year == 0) {
 			if (!first) {
-				Cli.showTxt("Aviso!\nEntrada inválida\nDigite apenas números ");
+				Cli.showTxt("Aviso!\nEntrada inválida \n\n Digite um ano válido");
 			}
 			Cli.showTxt("Digite o ano ");
 			try {
