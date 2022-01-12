@@ -3,6 +3,7 @@ package br.com.pessoas.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import br.com.pessoas.UiControll.Cli;
@@ -84,6 +85,7 @@ public class DateManager {
 	 * @return String
 	 */
 	private static Integer inputYear() {
+		int validYear = Calendar.getInstance().get(Calendar.YEAR);
 		int year = 0;
 		Boolean first = true;
 		while (year == 0) {
@@ -93,7 +95,7 @@ public class DateManager {
 			Cli.showTxt("Digite o ano ");
 			try {
 				Integer entry = Cli.getInt();
-				if (entry >= 1920 && entry <= 2021) {
+				if (entry >= 1920 && entry <= validYear) {
 					year = entry;
 				}
 			} catch (Exception e) {

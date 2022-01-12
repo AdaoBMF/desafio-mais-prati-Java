@@ -34,6 +34,11 @@ public class Cli {
 		}
 	}
 	
+	/**
+	 * Metodo que capta e valida uma String alfabetica
+	 * 
+	 * @return String
+	 */
 	public static String getAlpha() {
 		
 		boolean first = true;
