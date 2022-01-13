@@ -71,7 +71,7 @@ public class ActionControll {
 	/**
 	 * Metodo que auxilia/gerencia a edicao ou exclusao de um individuo
 	 */
-	private static void search() {
+	private static void edit() {
 		Individuo ind = null;
 		int op = 0;
 		int prop = 0;
@@ -233,7 +233,7 @@ public class ActionControll {
 				register();
 				break;
 			case 3:
-				search();
+				edit();
 				break;
 			case 4:
 				session = Menu.sessionAlert();

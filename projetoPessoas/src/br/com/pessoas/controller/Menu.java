@@ -142,7 +142,7 @@ public class Menu {
 	}
 
 	/**
-	 * Metodo para confirmar a finalizacao da secao
+	 * Metodo para confirmar a finalizacao da sessao
 	 * 
 	 * @return boolean
 	 */
@@ -152,7 +152,6 @@ public class Menu {
 		String check = "first";
 		while (!check.equalsIgnoreCase("S") && !check.equalsIgnoreCase("N")) {
 
-			// se não for a primeira execucao mostra um warning
 			if (!check.equals("first")) {
 				Cli.showTxt("\nAviso!\nDigite apenas S ou N ");
 			}
