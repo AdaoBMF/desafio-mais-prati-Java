@@ -251,6 +251,6 @@ public class ActionControll {
 				continue;
 			}
 		}
-		Cli.showTxt("Fim da Sessão");
+		Cli.endSession();
 	}
 }

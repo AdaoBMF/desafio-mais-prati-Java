@@ -24,7 +24,7 @@ public class Cli {
 		String entry = "";
 		while (true) {
 			if (!first) {
-				Cli.showTxt("Insira uma Entrada Válida: ");
+				showTxt("Insira uma Entrada Válida: ");
 			}
 			entry = sc.nextLine().trim();
 			if (!entry.equals("")) {
@@ -45,7 +45,7 @@ public class Cli {
 		String entry = "";
 		while (true) {
 			if (!first) {
-				Cli.showTxt("Insira uma Entrada Válida: (apenas letras) ");
+				showTxt("Insira uma Entrada Válida: (apenas letras) ");
 			}
 			entry = sc.nextLine().trim();
 			if (!entry.equals("") && EntryCheck.alphaCheck(entry)) {
@@ -66,7 +66,7 @@ public class Cli {
 		String entry = "";
 		while (true) {
 			if (!first) {
-				Cli.showTxt("Insira um Número Válido: (apenas números de 8 a 15 digitos)");
+				showTxt("Insira um Número Válido: (apenas números de 8 a 15 digitos)");
 			}
 			entry = sc.nextLine().trim();
 			if (!entry.equals("") && EntryCheck.PhoneCheck(entry)) {
@@ -104,6 +104,11 @@ public class Cli {
 	 */
 	public static void showTxt(String txt) {
 		System.out.print("\n" + txt);
+	}
+	
+	public static void endSession() {
+		sc.close();
+		showTxt("Fim da Sessão");
 	}
 
 }
