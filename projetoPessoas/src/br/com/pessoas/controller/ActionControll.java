@@ -53,7 +53,7 @@ public class ActionControll {
 	}
 
 	/**
-	 * Metodo que retorna um individuo pesquisado pelo nome completo
+	 * Metodo que retorna um individuo pesquisado pelo id
 	 * 
 	 * @param int ID
 	 * @return Individuo
